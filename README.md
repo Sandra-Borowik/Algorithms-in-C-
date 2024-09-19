@@ -2,7 +2,7 @@
 
 ## Made as a part of course that I took part in 2021.
 \
-Example of given instructions (for Max-Heap):\
+### Example of given instructions (for Max-Heap):
 \
 Write a program that checks whether a sequence of numbers provided through standard input represents a complete max-heap.\
 \
@@ -17,9 +17,9 @@ The standard output should contain Z lines of answers. In the i-th line, the ans
 YES (TAK in Polish) if the values in the i-th sequence represent a complete max-heap, or\
 NO (NIE in Polish) otherwise.\
 \
-Example:\
-For the input:\
+### Example:
 \
+For the input:\
 4\
 12\
 74 32 57 20 64 23 15 52 33 65 63 68\
