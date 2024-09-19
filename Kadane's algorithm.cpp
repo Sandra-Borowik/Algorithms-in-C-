@@ -1,83 +1,46 @@
 #include "pch.h"
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<cstdlib>
 
 using namespace std;
 
-string najdluzszyPodciag(string str1, string str2) {
-	int n = str1.length();
-	int m = str2.length();
+int maxSubArraySum(int a[], int size)
+{
+	int max_so_far = INT_MIN, max_ending_here = 0;
 
-	int** tab_pom = new int* [n + 1];
-
-	for (int i = 0; i <= n; i++)
+	for (int i = 0; i < size; i++)
 	{
-		tab_pom[i] = new int[m + 1];
+		max_ending_here = max_ending_here + a[i];
+		if (max_so_far < max_ending_here)
+			max_so_far = max_ending_here;
+
+		if (max_ending_here < 0)
+			max_ending_here = 0;
 	}
-
-	int wynik = 0, poz = 0;
-
-	for (int i = 0; i <= n; i++)
-	{
-		for (int j = 0; j <= m; j++)
-		{
-			if (i == 0 || j == 0)
-			{
-				tab_pom[i][j] = 0;
-			}
-			else if (str1[i - 1] == str2[j - 1])
-			{
-				tab_pom[i][j] = tab_pom[i - 1][j - 1] + 1;
-				if (tab_pom[i][j] > wynik)
-				{
-					wynik = tab_pom[i][j];
-					poz = i;
-				}
-			}
-			else
-			{
-				tab_pom[i][j] = 0;
-			}
-		}
-	}
-
-	string w = "";
-
-	for (int i = wynik; i > 0; i--)
-	{
-		w += str1[poz - i];
-	}
-
-	for (int i = 0; i <= n; i++)
-	{
-		delete tab_pom[i];
-	}
-
-	delete tab_pom;
-	return w;
+	return max_so_far;
 }
 
-int main() {
-
+int main()
+{
 	int s;
-	cout << "Wprowadz ilosc sprawdzan:";
+	cout << "Wprowadz ilosc tablic:";
 	cin >> s;
 
-	for (int k = 0; k < s; k++)
+	for (int k = 0; k <= s; k++)
 	{
-		string str1, str2;
-		cout << endl << "Podaj pierwsze slowo:" << endl;
-		cin >> str1;
-		cout << "Podaj drugie slowo:" << endl;
-		cin >> str2;
-		string w = najdluzszyPodciag(str1, str2);
-		if (w == "") {
-			cout << "Wyrazy nie maja wspolnej czesci";
+		cout << "Wprowadz ilosc wprowadzonych liczb: ";
+		int l;
+		cin >> l;
+		int* arr = new int[l];
+		cout << "Wprowadz liczby: ";
+		for (int i = 0; i < l; i++) {
+			cin >> arr[i];
 		}
-		else {
-			cout << "Wynik: " << w << endl;
-		}
+		int max_sum = maxSubArraySum(arr, l);
+		cout << endl << max_sum << " " << "";
+
+		delete[] arr;
 	}
-	system("pause");
+	system("PAUSE");
 	return 0;
 }
