@@ -1,6 +1,6 @@
-# Algorithms-in-CPP\
-\
-## Made as a part of course that I took part in 2021.\
+# Algorithms-in-CPP
+
+## Made as a part of course that I took part in 2021.
 \
 Example of given instructions (for Max-Heap):\
 \
